@@ -1,0 +1,43 @@
+{% extends "app_controle/base.html" %}
+{% block conteudo %}
+
+<main style="text-align: center;" class="container">
+
+    <h1>Lista de Motoristas Cadastrados</h1>
+    <br>
+    {% if motorista_list %}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Número CNH</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for motorista in motorista_list %}
+                    <tr>
+                        <td>{{ motorista.pk }}</td>
+                        <td>{{ motorista.nome|upper  }}</td>
+                        <td>{{ motorista.telefone|default:"-" }}</td>
+                        <td>{{ motorista.num_cnh }}</td>
+                        <td>
+                            <a href="{% url 'motorista_update' pk=motorista.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                            <a href="{% url 'motorista_delete' pk=motorista.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Não há motoristas cadastrados</p>
+    {% endif %}
+
+    <a href="{% url 'motorista_create' %}" class="btn btn-primary">Novo Motorista</a>
+
+</main>
+
+
+{% endblock %}

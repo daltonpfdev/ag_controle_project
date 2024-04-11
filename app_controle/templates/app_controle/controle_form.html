@@ -1,0 +1,25 @@
+{% extends "app_controle/base.html" %}
+{% block conteudo %}
+
+{% load crispy_forms_tags %}
+
+<main class="container">
+
+    {% if controle.pk %}
+        <h1>Editar a {{controle.pk}}° saida</h1>
+    {% else %}
+        <h1>Cadastro de uma nova saída</h1>
+    {% endif %}
+    
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</main>
+
+
+{% endblock %}

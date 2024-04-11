@@ -1,0 +1,44 @@
+{% extends "app_controle/base.html" %}
+{% block conteudo %}
+
+<main style="text-align: center;" class="container">
+
+    <h1>Lista de Veiculos Cadastrados</h1>
+    <br>
+    {% if veiculo_list %}
+    
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Placa</th>
+                    <th>Marca</th>
+                    <th>Veiculo</th>
+                    <th>KM próxima troca de Óleo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for veiculo in veiculo_list %}
+                        <td>{{ veiculo.pk }}</td>
+                        <td>{{ veiculo.placa|upper }}</td>
+                        <td>{{ veiculo.marca|upper }}</td>
+                        <td>{{ veiculo.veiculo|upper }}</td>
+                        <td>{{ veiculo.km_troca_oleo }}</td>
+                        <td>
+                            <a href="{% url 'veiculo_update' pk=veiculo.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                            <a href="{% url 'veiculo_delete' pk=veiculo.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Não há veiculos cadastrados</p>
+    {% endif %}
+        
+    <a href="{% url 'veiculo_create' %}" class="btn btn-primary">Novo Veiculo</a>
+
+</main>
+
+{% endblock %}

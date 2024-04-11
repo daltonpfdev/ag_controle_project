@@ -1,0 +1,88 @@
+{% extends "app_controle/base.html" %}
+{% block conteudo %}
+
+<style>
+    table {
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+</style> 
+
+<div class="container">
+    <h1>Detalhes do Registro: {{ controle_view.pk }}</h1>
+    <br>
+    <table>
+        <tr>
+            <th>Id do Motorista</th>
+            <td>{{ controle_view.motorista.cod_motorista }}</td>
+        </tr>
+        <tr>
+            <th>N° CNH do Motorista</th>
+            <td>{{ controle_view.motorista.num_cnh }}</td>
+        </tr>
+        <tr>
+            <th>Id do Veiculo</th>
+            <td>{{ controle_view.veiculo.cod_veiculo }}</td>
+        </tr>
+        <tr>
+            <th>Placa do Veiculo</th>
+            <td>{{ controle_view.veiculo.placa|upper }}</td>
+        </tr>
+        <tr>
+            <th>Data da Retirada do Veículo</th>
+            <td>{{ controle_view.data_saida }}</td>
+        </tr>
+        <tr>
+            <th>Horário da Retirada do Veículo</th>
+            <td>{{ controle_view.hora_saida }}</td>
+        </tr>
+        <tr>
+            <th>KM do Veículo na Retirada</th>
+            <td>{{ controle_view.km_saida|floatformat:0 }}</td>
+        </tr>
+        <tr>
+            <th>Proxima Troca de Óleo</th>
+            <td>{{ controle_view.veiculo.km_troca_oleo }}</td>
+        </tr>
+        <tr>
+            <th>Destino</th>
+            <td>{{ controle_view.destino|upper }}</td>
+        </tr>
+        <tr>
+            <th>Data do Retorno do Veículo</th>
+            <td>{{ controle_view.data_retorno|default:"-" }}</td>
+        </tr>
+        <tr>
+            <th>Horário do Retorno do Veículo</th>
+            <td>{{ controle_view.hora_retorno|default:"-" }}</td>
+        </tr>
+        <tr>
+            <th>Dias com o Veículo</th>
+            <td>{{ controle_view.calcular_quantidade_dias|default:"-" }}</td>
+        </tr>
+        <tr>
+            <th>KM do Veículo no Retorno</th>
+            <td>{{ controle_view.km_retorno|floatformat:0 |default:"-" }}</td>
+        </tr>
+        <tr>
+            <th>KM Percorrido</th>
+            <td>{{ controle_view.km_percorrido|floatformat:0|default:"-" }}</td>
+        </tr>
+
+    </table>
+    <br>
+    {% if controle_view.km_retorno > controle_view.veiculo.km_troca_oleo %}
+
+        <p style="color: red">Realizar a troca de óleo do veículo: <strong>{{controle_view.veiculo.marca|upper}}</strong> <strong>{{controle_view.veiculo.veiculo|upper}}</strong>, de Placa: <strong>{{controle_view.veiculo.placa|upper}}</strong></p>
+
+    {% endif %}
+    <br>
+    <a href="{% url 'controle_list' %}" class="btn btn-secondary">Voltar</a>
+</div>
+
+{% endblock %}

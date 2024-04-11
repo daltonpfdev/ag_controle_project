@@ -1,0 +1,110 @@
+{% extends "app_controle/base.html" %}
+{% block conteudo %}
+
+<main style="text-align: center;" class="container">
+
+    {% if not controles and request.GET.data_saida %}
+        <h1 style="text-align: center;" ><strong>ERROR!!!!</strong></h1>
+        <h2><strong>Nenhum</strong> registro encontrado com a <strong>Data de Saída</strong>: {{ request.GET.data_saida }} </h2>
+        <br>
+        <a href="{% url 'controle_list' %}" class="btn btn-secondary">Voltar</a>
+
+    {% elif not controles and motoristas and veiculos %}
+        <h1>{{ mensagem }}</h1>
+        <br>
+        <a href="{% url 'controle_create' %}" class="btn btn-primary">Realizar Nova Saída</a>
+    
+    {% elif motoristas and veiculos %}
+
+        <h1>Controle de Saída e Chegada de Veículos</h1>
+        <br>
+
+        <form method="get" style="float: left; margin-right: 20px;">
+            <label for="data_saida">Pesquisar por data de saída:</label>
+            <input type="date" id="data_saida" name="data_saida">
+            <button type="submit">Pesquisar</button>
+        </form>
+
+        {% if request.GET.data_saida %}
+
+            <p>Data de Pesquisa: {{ request.GET.data_saida }}</p>
+
+        {% endif %}
+
+        <br>
+        <table class="table table-bordered table-striped">
+            <thead style="vertical-align: middle;">
+                <tr>
+                    <th>Id Saida</th>
+                    <th>Id Veiculo</th>
+                    <th>Id Motorista</th>
+                    <th >Data da Retirada</th>
+                    <th>Hora da Retirada</th>
+                    <th>KM do Veículo retirada</th>
+                    <th>Destino</th>
+                    <th>Data do Retorno</th>
+                    <th>Hora do Retorno</th>
+                    <th>KM do Veículo retorno</th>
+                    <th>KM percorrido</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            
+            {% for controle in controles %}
+
+            <tbody>
+                <tr>
+                    <td>{{ controle.id }}</td>
+                    <td>{{ controle.veiculo.cod_veiculo }}</td>
+                    <td>{{ controle.motorista.cod_motorista }}</td>
+                    <td style="white-space: nowrap;">{{ controle.data_saida }}</td>
+                    <td>{{ controle.hora_saida }}</td>
+                    <td>{{ controle.km_saida }}</td>
+                    <td style="white-space: nowrap;">{{ controle.destino }}</td>
+                    <td style="white-space: nowrap;">{{ controle.data_retorno|default:"-" }}</td>
+                    <td>{{ controle.hora_retorno|default:"-" }}</td>
+                    <td>{{ controle.km_retorno|default:"-" }}</td>
+                    <td>{{ controle.km_percorrido|default:"-" }}</td>
+                    <td class="btn-group text-center">
+                        <a href="{% url 'controle_detail' pk=controle.pk %}" class="btn btn-primary btn-sm">Visualizar</a>
+                        <a href="{% url 'controle_update' pk=controle.id %}" class="btn btn-secondary btn-sm">Editar</a>
+                        <a href="{% url 'controle_delete' pk=controle.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+
+            {% endfor %}
+            
+        </table>
+        <br>
+        <a href="{% url 'controle_create' %}" class="btn btn-primary">Realizar Nova Saída</a>
+
+        {% if request.GET.data_saida %}
+
+            <a href="{% url 'controle_list' %}" class="btn btn-secondary">Voltar</a>
+
+        {% endif %}
+        
+    {% elif not motoristas and not veiculos %}
+
+        <h1>{{ mensagem }}</h1>
+        <br>
+        <a href="{% url 'motorista_create' %}" class="btn btn-primary">Cadastrar Motorista</a>
+        <a href="{% url 'veiculo_create'%}" class="btn btn-primary">Cadastrar Veiculo</a>
+
+    {% elif not motoristas %}
+
+        <h1>{{ mensagem }}</h1>
+        <br>
+        <a href="{% url 'motorista_create' %}" class="btn btn-primary">Cadastrar Motorista</a>
+
+    {% elif not veiculos %}
+
+        <h1>{{ mensagem }}</h1>
+        <br>
+        <a href="{% url 'veiculo_create' %}" class="btn btn-primary">Cadastrar Veiculo</a>
+
+    {% endif %}
+</main>
+
+{% endblock %}

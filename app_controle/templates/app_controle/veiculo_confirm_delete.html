@@ -1,0 +1,22 @@
+{% extends "app_controle/base.html" %}
+{% block conteudo %}
+
+<main class="container">
+
+    <h1>Excluir Veículo?</h1>
+
+    <p>Tem certeza que deseja excluir o veículo <strong>{{veiculo.marca}}</strong> <strong>{{veiculo.veiculo}}</strong> de id <strong>{{veiculo.cod_veiculo}}</strong>?</p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a href="{% url 'veiculo_list' %} " class="btn btn-primary">Cancelar</a>
+
+    </form>
+
+</main>
+
+
+{% endblock %}

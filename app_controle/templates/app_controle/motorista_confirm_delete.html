@@ -1,0 +1,22 @@
+{% extends "app_controle/base.html" %}
+{% block conteudo %}
+
+<main class="container">
+
+    <h1>Excluir Motorista?</h1>
+
+    <p>Tem certeza que deseja excluir o motorista <strong>{{motorista.nome}}</strong>?</p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a href="{% url 'motorista_list' %} " class="btn btn-primary">Cancelar</a>
+
+    </form>
+
+</main>
+
+
+{% endblock %}
