@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import Motorista, Veiculo, Controle
 from django.urls import reverse_lazy
-from django import forms
 
 # Create your views here.
 
