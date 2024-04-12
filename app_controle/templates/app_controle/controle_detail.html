@@ -18,7 +18,7 @@
 <div style="display: flex; justify-content: center;">
     
     <br>
-    <table style="table-layout: fixed; width: 50%;" class="table">
+    <table style="table-layout: fixed; width: 40%;" class="table">
         <tr>
             <th>Id do Motorista</th>
             <td>{{ controle_view.motorista.cod_motorista }}</td>
@@ -88,9 +88,11 @@
     <br>
     <br>  
 </div>
-<br>
+
 {% if controle_view.km_retorno > controle_view.veiculo.km_troca_oleo or controle_view.km_saida > controle_view.veiculo.km_troca_oleo%}
-    <p style="color: red; display: flex; justify-content: center;">Realizar a troca de óleo do veículo: <strong>{{controle_view.veiculo.marca|upper}}</strong> <strong>{{controle_view.veiculo.veiculo|upper}}</strong>, de Placa: <strong>{{controle_view.veiculo.placa|upper}}</strong></p>
+    <div style="display: flex; justify-content: center;">
+        <h5 style="color: red;">Realizar a troca de óleo do veículo: <strong>{{controle_view.veiculo.marca|upper}}</strong> <strong>{{controle_view.veiculo.veiculo|upper}}</strong>, de Placa: <strong>{{controle_view.veiculo.placa|upper}}</strong></h5>
+    </div>
 {% endif %}
 <div style="display: flex; justify-content: center;">
     <a href="{% url 'controle_list' %}" class="btn btn-secondary">Voltar</a>
