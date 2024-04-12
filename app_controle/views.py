@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import Motorista, Veiculo, Controle
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -83,6 +84,16 @@ class ControleCreateView(CreateView):
     model = Controle
     fields = ['veiculo', 'motorista', 'data_saida', 'hora_saida', 'km_saida', 'destino', 'data_retorno', 'hora_retorno', 'km_retorno']
     success_url = reverse_lazy("controle_list")
+
+    # def form_valid(self, form):
+    #     veiculo = form.cleaned_data['veiculo']
+    #     # Verifica se existem registros de Controle associados a este veículo
+    #     if not Controle.objects.filter(veiculo=veiculo).exists():
+    #         veiculo.disponivel = True
+    #     else:
+    #         veiculo.disponivel = False
+    #     veiculo.save()
+    #     return super().form_valid(form)
 
 class ControleUpdateView(UpdateView):
     model = Controle

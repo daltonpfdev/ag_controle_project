@@ -24,7 +24,7 @@
             <input type="date" id="data_saida" name="data_saida">
             <button type="submit">Pesquisar</button>
         </form>
-
+        <br>
         {% if request.GET.data_saida %}
 
             <p>Data de Pesquisa: {{ request.GET.data_saida }}</p>
@@ -46,6 +46,7 @@
                     <th>Hora do Retorno</th>
                     <th>KM do Veículo retorno</th>
                     <th>KM percorrido</th>
+                    <th>Veiculo Disponível</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -65,6 +66,7 @@
                     <td>{{ controle.hora_retorno|default:"-" }}</td>
                     <td>{{ controle.km_retorno|floatformat:0|default:"-" }}</td>
                     <td>{{ controle.km_percorrido|floatformat:0|default:"-" }}</td>
+                    <td style="white-space: nowrap;">{% if controle.veiculo.disponivel %} SIM {% else %} NÃO {% endif %}</td>
                     <td class="btn-group text-center">
                         <a href="{% url 'controle_detail' pk=controle.pk %}" class="btn btn-primary btn-sm">Visualizar</a>
                         <a href="{% url 'controle_update' pk=controle.id %}" class="btn btn-secondary btn-sm">Editar</a>

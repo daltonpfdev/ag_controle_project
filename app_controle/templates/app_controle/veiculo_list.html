@@ -15,6 +15,7 @@
                     <th>Marca</th>
                     <th>Veiculo</th>
                     <th>KM próxima troca de Óleo</th>
+                    <th>Diponível</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -25,6 +26,7 @@
                         <td>{{ veiculo.marca|upper }}</td>
                         <td>{{ veiculo.veiculo|upper }}</td>
                         <td>{{ veiculo.km_troca_oleo }}</td>
+                        <td>{% if veiculo.disponivel %} SIM {% else %} NÃO {% endif %}</td>
                         <td>
                             <a href="{% url 'veiculo_update' pk=veiculo.pk %}" class="btn btn-secondary btn-sm">Editar</a>
                             <a href="{% url 'veiculo_delete' pk=veiculo.pk %}" class="btn btn-danger btn-sm">Excluir</a>

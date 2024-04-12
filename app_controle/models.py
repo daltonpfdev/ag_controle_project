@@ -22,21 +22,13 @@ class Motorista(models.Model):
             raise ValidationError("Numero de CNH inválido")
 
 class Veiculo(models.Model):
-
-    ESTADOS_CHOICES = [
-        ('AC', 'Acre'),
-        ('AL', 'Alagoas'),
-        ('AP', 'Amapá'),
-        # Adicione os demais estados aqui
-    ]
-
     cod_veiculo = models.AutoField(verbose_name="Id", primary_key=True, null=False, blank=False)
     placa = models.CharField(max_length=7, null=False, blank=False)
     marca = models.CharField(max_length=20, null=False, blank=False)
     veiculo = models.CharField(max_length=50, null=False, blank=False)
     km_troca_oleo = models.IntegerField(verbose_name="KM próxima troca de Óleo",null=False, blank=False)
     tipo_placa = models.CharField(max_length=20, null=True, blank=True)
-    estado = models.CharField(max_length=50, null=True, blank=True, choices=ESTADOS_CHOICES)
+    disponivel = models.BooleanField(default=True)
 
     def clean(self):
         super().clean()
@@ -72,6 +64,11 @@ class Controle(models.Model):
     km_percorrido = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
 
     def clean(self):
+
+        if self.veiculo.disponivel == False:
+            raise ValidationError('Veículo já está em uso.')
+        super().clean()
+
         if self.data_saida is not None and self.data_retorno is not None:
             if self.data_retorno < self.data_saida:
                 raise ValidationError('ERROR: A Data de Retorno está MENOR que a Data de Saída, insira uma Data MAIOR ou IGUALdo que a Data de Sáida .')
