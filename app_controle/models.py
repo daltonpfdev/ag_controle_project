@@ -27,6 +27,25 @@ class Veiculo(models.Model):
     marca = models.CharField(max_length=20, null=False, blank=False)
     veiculo = models.CharField(max_length=50, null=False, blank=False)
     km_troca_oleo = models.IntegerField(verbose_name="KM próxima troca de Óleo",null=False, blank=False)
+    tipo_placa = models.CharField(max_length=20, null=True, blank=True)
+
+    def clean(self):
+        super().clean()
+        if len(self.placa) == 7:
+            if all(map(str.isalpha, self.placa[:3])) and all(map(str.isdigit, self.placa[3:])):
+                self.tipo_placa = 'Antigo'
+            elif (
+                all(map(str.isalpha, self.placa[:3]))
+                and str.isdigit(self.placa[3])
+                and str.isalpha(self.placa[4])
+                and len(self.placa) == 7
+                and all(map(str.isdigit, self.placa[5:]))
+            ):
+                self.tipo_placa = 'Mercosul'
+            else:
+                raise ValidationError('Placa em formato inválido.')
+        else:
+            raise ValidationError('Placa em formato inválido.')
 
     def __str__(self):
         return f"Veículo: {self.marca.upper()} {self.veiculo.upper()} || id: {self.cod_veiculo}"

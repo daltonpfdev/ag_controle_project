@@ -24,7 +24,7 @@ class MotoristaCreateView(CreateView):
 
 class VeiculoCreateView(CreateView):
     model = Veiculo
-    fields = "__all__"
+    fields = ['placa', 'marca', 'veiculo', 'km_troca_oleo']
     success_url = reverse_lazy("veiculo_list")
 
 class MotoristaUpdateView(UpdateView):
@@ -34,7 +34,7 @@ class MotoristaUpdateView(UpdateView):
 
 class VeiculoUpdateView(UpdateView):
     model = Veiculo
-    fields = "__all__"
+    fields = ['placa', 'marca', 'veiculo', 'km_troca_oleo']
     success_url = reverse_lazy('veiculo_list')
 
 class MotoristaDeleteView(DeleteView):
