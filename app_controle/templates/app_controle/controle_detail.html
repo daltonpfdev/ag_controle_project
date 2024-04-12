@@ -13,13 +13,19 @@
     }
 </style> 
 
-<div class="container">
-    <h1>Detalhes do Registro: {{ controle_view.pk }}</h1>
+<h1 style="display: flex; justify-content: center;">Detalhes do Registro: {{ controle_view.pk }}</h1>
+<br>
+<div style="display: flex; justify-content: center;">
+    
     <br>
-    <table>
+    <table style="table-layout: fixed; width: 50%;" class="table">
         <tr>
             <th>Id do Motorista</th>
             <td>{{ controle_view.motorista.cod_motorista }}</td>
+        </tr>
+        <tr>
+            <th>Nome do Motorista</th>
+            <td>{{ controle_view.motorista.nome|upper }}</td>
         </tr>
         <tr>
             <th>N° CNH do Motorista</th>
@@ -28,6 +34,10 @@
         <tr>
             <th>Id do Veiculo</th>
             <td>{{ controle_view.veiculo.cod_veiculo }}</td>
+        </tr>
+        <tr>
+            <th>Nome do Veículo</th>
+            <td>{{ controle_view.veiculo.marca|upper }} {{ controle_view.veiculo.veiculo|upper }}</td>
         </tr>
         <tr>
             <th>Placa do Veiculo</th>
@@ -76,12 +86,13 @@
 
     </table>
     <br>
-    {% if controle_view.km_retorno > controle_view.veiculo.km_troca_oleo %}
-
-        <p style="color: red">Realizar a troca de óleo do veículo: <strong>{{controle_view.veiculo.marca|upper}}</strong> <strong>{{controle_view.veiculo.veiculo|upper}}</strong>, de Placa: <strong>{{controle_view.veiculo.placa|upper}}</strong></p>
-
-    {% endif %}
-    <br>
+    <br>  
+</div>
+<br>
+{% if controle_view.km_retorno > controle_view.veiculo.km_troca_oleo or controle_view.km_saida > controle_view.veiculo.km_troca_oleo%}
+    <p style="color: red; display: flex; justify-content: center;">Realizar a troca de óleo do veículo: <strong>{{controle_view.veiculo.marca|upper}}</strong> <strong>{{controle_view.veiculo.veiculo|upper}}</strong>, de Placa: <strong>{{controle_view.veiculo.placa|upper}}</strong></p>
+{% endif %}
+<div style="display: flex; justify-content: center;">
     <a href="{% url 'controle_list' %}" class="btn btn-secondary">Voltar</a>
 </div>
 
