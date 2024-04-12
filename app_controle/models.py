@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from django.core.exceptions import ValidationError
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
+from validate_docbr import CNH
 # Create your models here.
 
 
@@ -14,6 +15,11 @@ class Motorista(models.Model):
 
     def __str__(self):
         return f"Nome: {self.nome.upper()} || N° da CNH: {self.num_cnh}"
+    
+    def clean(self):
+        cnh = CNH()
+        if not cnh.validate(self.num_cnh):
+            raise ValidationError("Numero de CNH inválido")
 
 class Veiculo(models.Model):
     cod_veiculo = models.AutoField(verbose_name="Id", primary_key=True, null=False, blank=False)
@@ -66,4 +72,3 @@ class Controle(models.Model):
     
     def __str__(self):
         return f"Controle de {self.veiculo} - {self.data_saida}"
-
