@@ -99,3 +99,6 @@ class ControleDetailView(DetailView):
     model = Controle
     context_object_name = 'controle_view'
     success_url = reverse_lazy("controle_list")
+
+def pagina_nao_encontrada(request, exception):
+    return render(request, '404.html', status=404)

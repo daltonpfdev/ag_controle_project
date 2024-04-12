@@ -5,7 +5,7 @@ import app_controle.views as views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    #path("", views.home, name="home"),
+    path("home/", views.home, name="home"),
     path("motorista_list/", views.MotoristaListView.as_view(), name="motorista_list"),
     path("veiculo_list/", views.VeiculoListView.as_view(), name="veiculo_list"),
     path("motorista_create/", views.MotoristaCreateView.as_view(), name="motorista_create"),
@@ -20,3 +20,5 @@ urlpatterns = [
     path("controle_delete/<int:pk>", views.ControleDeleteView.as_view(), name="controle_delete"),
     path("controle_detail/<int:pk>", views.ControleDetailView.as_view(), name="controle_detail"),
 ]
+
+handler404 = "app_controle.views.pagina_nao_encontrada"
