@@ -59,12 +59,12 @@
                     <td>{{ controle.motorista.cod_motorista }}</td>
                     <td style="white-space: nowrap;">{{ controle.data_saida }}</td>
                     <td>{{ controle.hora_saida }}</td>
-                    <td>{{ controle.km_saida }}</td>
+                    <td>{{ controle.km_saida|floatformat:0 }}</td>
                     <td style="white-space: nowrap;">{{ controle.destino }}</td>
                     <td style="white-space: nowrap;">{{ controle.data_retorno|default:"-" }}</td>
                     <td>{{ controle.hora_retorno|default:"-" }}</td>
-                    <td>{{ controle.km_retorno|default:"-" }}</td>
-                    <td>{{ controle.km_percorrido|default:"-" }}</td>
+                    <td>{{ controle.km_retorno|floatformat:0|default:"-" }}</td>
+                    <td>{{ controle.km_percorrido|floatformat:0|default:"-" }}</td>
                     <td class="btn-group text-center">
                         <a href="{% url 'controle_detail' pk=controle.pk %}" class="btn btn-primary btn-sm">Visualizar</a>
                         <a href="{% url 'controle_update' pk=controle.id %}" class="btn btn-secondary btn-sm">Editar</a>
