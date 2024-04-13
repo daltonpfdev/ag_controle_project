@@ -68,6 +68,12 @@ class Controle(models.Model):
             raise ValidationError(f'O Veículo {self.veiculo.marca.upper()} {self.veiculo.veiculo.upper()}, de ID: {self.veiculo.cod_veiculo} já está em uso.')
         super().clean()
 
+        if self.data_retorno:
+            if not self.hora_retorno:
+                raise ValidationError({'hora_retorno': ["Campo obrigatório quando data de retorno é preenchida."]})
+            if not self.km_retorno:
+                raise ValidationError({'km_retorno': ["Campo obrigatório quando data de retorno é preenchida."]})
+
         if self.data_saida is not None and self.data_retorno is not None:
             if self.data_retorno < self.data_saida:
                 raise ValidationError('ERROR: A Data de Retorno está MENOR que a Data de Saída, insira uma Data MAIOR ou IGUALdo que a Data de Sáida .')
