@@ -2,7 +2,6 @@ from django.db import models
 from datetime import datetime, timedelta
 from django.core.exceptions import ValidationError
 from django.dispatch import receiver
-from django.db.models.signals import pre_save
 from validate_docbr import CNH
 # Create your models here.
 

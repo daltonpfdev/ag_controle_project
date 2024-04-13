@@ -1,9 +1,7 @@
-from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import Motorista, Veiculo, Controle
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -74,7 +72,7 @@ class ControleListView(ListView):
             if not Controle.objects.filter(veiculo=veiculo).exists():
                 veiculo.disponivel = True
                 veiculo.save()
-                
+
         return context
 
     def get_queryset(self):
