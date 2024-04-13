@@ -19,6 +19,7 @@ urlpatterns = [
     path("controle_update/<int:pk>", views.ControleUpdateView.as_view(), name="controle_update"),
     path("controle_delete/<int:pk>", views.ControleDeleteView.as_view(), name="controle_delete"),
     path("controle_detail/<int:pk>", views.ControleDetailView.as_view(), name="controle_detail"),
+    path('controle_complete/<int:pk>/', views.ControleCompleteView.as_view(), name='controle_complete'),
 ]
 
 handler404 = "app_controle.views.pagina_nao_encontrada"

@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView, View
 from .models import Motorista, Veiculo, Controle
 from django.urls import reverse_lazy
-from django.core.exceptions import ValidationError
-from django import forms
+from django.shortcuts import get_object_or_404, redirect
 
 # Create your views here.
 
@@ -74,6 +73,12 @@ class ControleListView(ListView):
             if not Controle.objects.filter(veiculo=veiculo).exists():
                 veiculo.disponivel = True
                 veiculo.save()
+        
+        for controle in Controle.objects.all():
+            if controle.concluido:
+                veiculo = controle.veiculo
+                veiculo.disponivel = True
+                veiculo.save()
 
         return context
 
@@ -127,6 +132,13 @@ class ControleDetailView(DetailView):
     model = Controle
     context_object_name = 'controle_view'
     success_url = reverse_lazy("controle_list")
+
+class ControleCompleteView(View):
+    def get(self, request, pk):
+        controle = get_object_or_404(Controle, pk=pk)
+        controle.concluido = True
+        controle.save()
+        return redirect('controle_list')
 
 def pagina_nao_encontrada(request, exception):
     return render(request, '404.html', status=404)

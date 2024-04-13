@@ -61,6 +61,7 @@ class Controle(models.Model):
     hora_retorno = models.TimeField(null=True, blank=True)
     km_retorno = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     km_percorrido = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    concluido = models.BooleanField(default=False)
 
     def clean(self):
 
