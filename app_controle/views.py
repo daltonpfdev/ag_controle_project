@@ -69,7 +69,12 @@ class ControleListView(ListView):
             context['mensagem'] = 'Não existem registros de controle'
         else:
             context['mensagem'] = 'Existem registros de motoristas e veículos.'
-
+        
+        for veiculo in Veiculo.objects.all():
+            if not Controle.objects.filter(veiculo=veiculo).exists():
+                veiculo.disponivel = True
+                veiculo.save()
+                
         return context
 
     def get_queryset(self):
@@ -85,15 +90,11 @@ class ControleCreateView(CreateView):
     fields = ['veiculo', 'motorista', 'data_saida', 'hora_saida', 'km_saida', 'destino', 'data_retorno', 'hora_retorno', 'km_retorno']
     success_url = reverse_lazy("controle_list")
 
-    # def form_valid(self, form):
-    #     veiculo = form.cleaned_data['veiculo']
-    #     # Verifica se existem registros de Controle associados a este veículo
-    #     if not Controle.objects.filter(veiculo=veiculo).exists():
-    #         veiculo.disponivel = True
-    #     else:
-    #         veiculo.disponivel = False
-    #     veiculo.save()
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        veiculo = form.cleaned_data['veiculo']
+        veiculo.disponivel = False
+        veiculo.save()
+        return super().form_valid(form)
 
 class ControleUpdateView(UpdateView):
     model = Controle

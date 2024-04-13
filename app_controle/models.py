@@ -66,7 +66,7 @@ class Controle(models.Model):
     def clean(self):
 
         if self.veiculo.disponivel == False:
-            raise ValidationError('Veículo já está em uso.')
+            raise ValidationError(f'O Veículo {self.veiculo.marca.upper()} {self.veiculo.veiculo.upper()}, de ID: {self.veiculo.cod_veiculo} já está em uso.')
         super().clean()
 
         if self.data_saida is not None and self.data_retorno is not None:
