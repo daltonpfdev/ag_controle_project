@@ -48,7 +48,7 @@ class Veiculo(models.Model):
             raise ValidationError('Placa em formato inválido.')
 
     def __str__(self):
-        return f"Veículo: {self.marca.upper()} {self.veiculo.upper()} || id: {self.cod_veiculo}"
+        return f"Veículo: {self.marca.upper()} {self.veiculo.upper()} || id: {self.cod_veiculo} || Disponibilidade: {"Sim "if self.disponivel else "Não"}"
 
 class Controle(models.Model):
     veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)

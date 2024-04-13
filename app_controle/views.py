@@ -109,18 +109,19 @@ class ControleUpdateView(UpdateView):
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
         obj.veiculo_disponivel_original = obj.veiculo.disponivel
+        obj.veiculo.disponivel = True
+        obj.veiculo.save()
         return obj
 
     def form_valid(self, form):
         controle = form.save(commit=False)
-        if form.has_changed():
-            controle.veiculo.disponivel = controle.veiculo_disponivel_original
-            controle.veiculo.save()
-            if controle.data_retorno:
-                controle.veiculo.disponivel = True
-            else:
-                controle.veiculo.disponivel = False
-            controle.veiculo.save()
+        controle.veiculo.disponivel = controle.veiculo_disponivel_original
+        controle.veiculo.save()
+        if controle.data_retorno:
+            controle.veiculo.disponivel = True
+        else:
+            controle.veiculo.disponivel = False
+        controle.veiculo.save()
         return super().form_valid(form)
 
 class ControleDeleteView(DeleteView):
