@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-wewej2uw(v*s-o&dr+57_-wu5b!o7fk%%#2=v-vjvlrib3&tb="
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []#['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -84,6 +84,7 @@ WSGI_APPLICATION = "controle_veiculos.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 #Para utilizar o arquivo db.sqlite3
+
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.sqlite3",
