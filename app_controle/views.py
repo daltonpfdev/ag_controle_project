@@ -101,6 +101,32 @@ class ControleUpdateView(UpdateView):
     fields = ['veiculo', 'motorista', 'data_saida', 'hora_saida', 'km_saida', 'destino', 'data_retorno', 'hora_retorno', 'km_retorno']
     success_url = reverse_lazy('controle_list')
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        # Armazenar o estado original de disponivel do Veiculo
+        obj.veiculo_disponivel_original = obj.veiculo.disponivel
+        # Alterar temporariamente o estado de disponivel do Veiculo para True
+        obj.veiculo.disponivel = True
+        obj.veiculo.save()
+        return obj
+
+
+    def form_valid(self, form):
+        # Obter o objeto Controle que está sendo editado
+        controle = form.save(commit=False)
+        # Restaurar o estado original de disponivel do Veiculo
+        controle.veiculo.disponivel = controle.veiculo_disponivel_original
+        controle.veiculo.save()
+        # Verificar se o Controle está sendo salvo com data_retorno preenchida
+        if controle.data_retorno:
+            # Se a data_retorno estiver preenchida, o veículo está disponível
+            controle.veiculo.disponivel = True
+        else:
+            # Se a data_retorno não estiver preenchida, o veículo não está disponível
+            controle.veiculo.disponivel = False
+        controle.veiculo.save()
+        return super().form_valid(form)
+
 class ControleDeleteView(DeleteView):
     model = Controle
     context_object_name = 'controle'
