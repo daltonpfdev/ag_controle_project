@@ -53,7 +53,7 @@ class ControleListView(ListView):
         context = super().get_context_data(**kwargs)
         context['motoristas'] = Motorista.objects.all()
         context['veiculos'] = Veiculo.objects.all()
-
+        
         motoristas_existem = context['motoristas'].exists()
         veiculos_existem = context['veiculos'].exists()
         controles_existem = Controle.objects.exists()
@@ -68,17 +68,21 @@ class ControleListView(ListView):
             context['mensagem'] = 'Não existem registros de controle'
         else:
             context['mensagem'] = 'Existem registros de motoristas e veículos.'
-        
+            
         for veiculo in Veiculo.objects.all():
             if not Controle.objects.filter(veiculo=veiculo).exists():
                 veiculo.disponivel = True
                 veiculo.save()
-        
-        for controle in Controle.objects.all():
-            if controle.concluido:
-                veiculo = controle.veiculo
-                veiculo.disponivel = True
-                veiculo.save()
+            else:
+                for controle in Controle.objects.all():
+                    if controle.concluido == False:
+                        veiculo = controle.veiculo
+                        veiculo.disponivel = False
+                        veiculo.save()
+                    elif controle.concluido == True:
+                        veiculo = controle.veiculo
+                        veiculo.disponivel = True
+                        veiculo.save()
 
         return context
 
