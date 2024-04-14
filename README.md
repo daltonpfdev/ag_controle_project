@@ -28,7 +28,7 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
       ```bash
       pip list
       
-   - Bicliotecas
+   - Bibliotecas
       - Dango
       - crispy-bootstrap
       - mysqlclient
