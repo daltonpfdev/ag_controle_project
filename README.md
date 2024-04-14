@@ -16,3 +16,24 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+
+2. Entrar no arquivo de ambiente virtual (venv):
+
+   ```bash
+   .\venv\Scripts\activate
+
+3. Verificar as bibliotecas necessárias para a execução do Projeto com o comando:
+
+   ```bash
+   pip list
+
+4. Lista de bibliotecas python necessárias para o Projeto:
+
+   - Django
+   - crispy-bootstrap5
+   - mysqlclient
+   - validate-docbr
+   
+   
+
+   
