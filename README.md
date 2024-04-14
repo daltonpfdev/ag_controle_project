@@ -26,7 +26,7 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 
    -Comando para verificar as bibliotecas
       ```bash
-         pip list
+      pip list
       
 4. Lista de bibliotecas python necessárias para o Projeto:
 
