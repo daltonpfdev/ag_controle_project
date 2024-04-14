@@ -79,7 +79,6 @@ Aqui está ambas configurações:
    ```bash
    python manage.py migrate
 
-
 ## Iniciar o Projeto
 
 1. Para iniciar o Projeto na sua localhost:
