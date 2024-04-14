@@ -24,11 +24,17 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 
 3. Verificar as bibliotecas necessárias para a execução do Projeto com o comando:
 
-   -Comando para verificar as bibliotecas
+   - Comando para verificar as bibliotecas
       ```bash
       pip list
       
-4. Lista de bibliotecas python necessárias para o Projeto:
+   - Bicliotecas
+      - Dango
+      - crispy-bootstrap
+      - mysqlclient
+      - validate-docbr
+      
+5. Instalações das Bibliotecas:
 
    - Django
        ```bash
