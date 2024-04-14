@@ -24,15 +24,56 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 
 3. Verificar as bibliotecas necessárias para a execução do Projeto com o comando:
 
-   ```bash
-   pip list
-
+   -Comando para verificar as bibliotecas
+      ```bash
+         pip list
+      
 4. Lista de bibliotecas python necessárias para o Projeto:
 
-- Django
-- crispy-bootstrap5
-- mysqlclient
-- validate-docbr
+   - Django
+       ```bash
+       pip install django 
+   - crispy-bootstrap5
+        ```bash
+        pip install crispy-bootstrap5
+   - mysqlclient
+        ```bash
+        pip install mysqlclient
+   - validate-docbr
+      ```bash
+      pip install validate-docbr
+
+## Configuração do Banco de Dados
+
+Este projeto foi planejado para funcionar com o Banco de Dados Mysql. Verifique se seu Mysql WorkBench está na localhost com a Porta: 3306
+Porem, caso preferirem, estou disponibilizando o arquivo db.sqlite3 que pode ser utilizado como Banco de Dados desse Projeto.
+Aqui está ambas configurações:
+
+1. Configuração do arquivo settings.py para o Banco de Dados MySql:
+   ```markdown
+   DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'app_controle',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
+       }
+   }
+
+2. Configuração do arquivo settings.py para o Banco de Dados Sqlite3
+   ```markdown
+   DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+       }
+   }
+
+
+
+
    
    
 
