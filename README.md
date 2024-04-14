@@ -29,10 +29,10 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 
 4. Lista de bibliotecas python necessárias para o Projeto:
 
-   - Django
-   - crispy-bootstrap5
-   - mysqlclient
-   - validate-docbr
+- Django
+- crispy-bootstrap5
+- mysqlclient
+- validate-docbr
    
    
 
