@@ -15,7 +15,7 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/daltonpfdev/ag_controle_project.git
 
 2. Entrar no arquivo de ambiente virtual (venv):
 
