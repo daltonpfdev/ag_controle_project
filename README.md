@@ -89,8 +89,7 @@ Aqui está ambas configurações:
 2. Acesse o progeto em:
    ```markdown
    http://localhost:8000/
-
-
+   
 ## Como Usar
 
 Quando o projeto for iniciado, você será direcionado para a página de Registros das Saídas e, como não tem nenhum registro de nada, irá aparecer 2 botões: "Cadastrar Motorista" e "Cadastrar Veículo". Após os cadastros, na página inicial irá aparecer o Botão: "Realizar Nova Saída", onde irá aparcecer um formulário onde poderá ser escolhido um veículo e um motorista e dados adicionais que precisam ou não ser adicionadas. Feito o registro, é possivel visualizar o registro, editar o registro, excluir o registro e concluir o registro. Uma vez concluido, o veículo volta a ser disponível para ser feito uma nova saída.
