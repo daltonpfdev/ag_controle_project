@@ -1,10 +1,9 @@
-# ag_controle_project
-CRUD em python utilizando o Framework Django com banco de dados MySql
+# Controle de Motoristas e Veículos
 
-Controle de Motoristas e Veículos
 Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de motoristas, veículos e saídas de veículos. Ele permite que você gerencie informações sobre motoristas, veículos e registros de saída de veículos associados aos motoristas.
 
-Funcionalidades
+# Funcionalidades
+
 Cadastro de motoristas com nome, telefone e número de CNH.
 Cadastro de veículos com placa, marca, tipo de veículo e quilometragem para troca de óleo.
 Registro de saídas de veículos, incluindo data e hora de saída, quilometragem de saída, destino, data e hora de retorno, quilometragem de retorno e quilometragem percorrida.
