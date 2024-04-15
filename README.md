@@ -113,8 +113,8 @@ Aqui está ambas configurações:
 
 1. Configuração do arquivo settings.py para o Banco de Dados MySql:
    
-1.1. Atualização no arquivo settings.py:
-
+ - 1.1. Atualização no arquivo settings.py:
+      ```markdown
       DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.mysql',
@@ -126,7 +126,7 @@ Aqui está ambas configurações:
           }
       }
          
-1.2. Alterações para configuração
+- 1.2. Alterações para configuração
 
    No MySql WorkBench, crie uma nova Schema chamada "app_controle" e configure os campos "USER" e "PASSWORD" de acordo com a configuração do MySql WorkBench
 
