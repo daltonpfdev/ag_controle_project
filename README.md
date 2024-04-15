@@ -10,6 +10,38 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 - Controle de disponibilidade de veículos, garantindo que um veículo só possa ser utilizado se estiver disponível.
 - Interface amigável para visualização e gerenciamento dos registros de controle.
 
+## Preparação do Terreno
+
+1. IDE
+
+   Este projeto foi programado inteiramente na IDE Visual Studio Code, então é recomendável que utlização do Projeto seja na IDE que o projeto foi projetado.
+
+2. Instalação do Python
+
+   Este é um projeto desenvolvido na Linguagem de Programação Python (mais especificamente na versão 3.12.3), então é necessário baixar e instalar o Python. É recomendado que seja baixado no site oficial do Python:
+   ```markdown
+   https://www.python.org/
+
+3. Variavel de Ambiente
+
+   Para que seja possível rodar um programa feito em Python, é necessário adicionar o caminho da instação para as suas Variáveis de Ambiente:
+
+   - Abra o "Painel de Controle".
+   - Clique em "Sistema e Segurança" e depois em "Sistema".
+   - No painel esquerdo, clique em "Configurações avançadas do sistema".
+   - Na janela de Propriedades do Sistema, clique em "Variáveis de Ambiente".
+   - Na seção "Variáveis de Sistema", encontre a variável "PATH" e selecione-a, então clique em "Editar...".
+   - Na janela de Edição de Variável de Sistema, clique em "Novo" e adicione o diretório do executável do Python ao PATH.
+   - Para encontrar o caminho da instalação do seu Python, abra o CMD e digite o comando:
+      ```bash
+      where python
+   - Clique em "OK" em todas as janelas para salvar as alterações.
+   - Para a confirmar a configuração da Variavel de Ambiente, abra o CMD novamente e digite o comando:
+      ```bash
+      python --version
+   - Caso aparecer: Python 3.12.3 (ou a versão instalada), está correto! Caso der erro, refaça novamente o procedimento.
+   
+   
 ## Instalação
 
 1. Clone o repositório:
