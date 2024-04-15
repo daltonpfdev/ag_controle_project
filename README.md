@@ -125,6 +125,7 @@ Aqui está ambas configurações:
               'PORT': 3306,
              }
          }
+         
 1.2. Alterações para configuração
 
    No MySql WorkBench, crie uma nova Schema chamada "app_controle" e configure os campos "USER" e "PASSWORD" de acordo com a configuração do MySql WorkBench
