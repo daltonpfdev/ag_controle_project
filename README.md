@@ -124,6 +124,8 @@ Aqui está ambas configurações:
        }
    }
 
+1.1. No MySql WorkBench, crie uma nova Schema chamada "app_controle" e configure os campos "USER" e "PASSWORD" de acordo com a configuração do MySql WorkBench
+
 2. Configuração do arquivo settings.py para o Banco de Dados Sqlite3
    ```markdown
    DATABASES = {
