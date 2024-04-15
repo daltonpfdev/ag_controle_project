@@ -114,17 +114,17 @@ Aqui está ambas configurações:
 1. Configuração do arquivo settings.py para o Banco de Dados MySql:
    
 1.1. Atualização no arquivo settings.py:
-      
-      DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.mysql',
-           'NAME': 'app_controle',
-           'USER': 'root',
-           'PASSWORD': 'root',
-           'HOST': '127.0.0.1',
-           'PORT': 3306,
-          }
-      }
+   ```markdown
+   DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'app_controle',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
+       }
+   }
          
 1.2. Alterações para configuração
 
