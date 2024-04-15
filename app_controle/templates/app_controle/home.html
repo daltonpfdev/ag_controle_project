@@ -1,8 +1,61 @@
-{% extends "app_controle/base.html" %}
-{% block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página Inicial</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        text-align: center;
+    }
 
-<header>
-    <h1>Home Page</h1>
-</header>
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-{% endblock %}
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .footer {
+        margin-top: 20px;
+        text-align: center;
+        color: #999;
+    }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Considerações</h1>
+        <p>Olá, meu nome é Dalton Pacola Franco. Sou o desenvolvedor desse projeto em Django.</p>
+        <p>Esta página não realiza nenhuma função específica no projeto, apenas serve como uma página inicial para alguns comentários.</p>
+        <p>Este foi um Projeto proposto pela Empresa Tupãense AG Sistemas como forma de teste para ingresso na mesma como Estagiário, e sei que alguem da Empresa está lendo esta mensagem!</p>
+        <p>Durante o desenvolvimento, me senti à vontade para implementar algumas funcionalidades extras no Projeto proposto, funcionalidades essas que não alteram a proposta inicial do Projeto.</p>
+        <p>Fiz o meu melhor com os meus conhecimentos e creio que a aplicação ficou boa, longe de ser perfeita.</p>
+        <p>Desde já, muito obrigado pelo oportunidade e espero poder contribuir com o que sei, além de aprender muito mais ao trabalhar com vocês.</p>
+        <p></p>
+        <br>
+        <a href="{% url 'controle_list' %}" class="btn btn-secondary">Clique para Voltar ao Projeto</a>
+        
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 daltonpfdev</p>
+    </div>
+</body>
+</html>
