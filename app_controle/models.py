@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime, timedelta
+from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.dispatch import receiver
 from validate_docbr import CNH
