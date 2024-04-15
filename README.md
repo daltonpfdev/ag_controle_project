@@ -16,11 +16,13 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 
    Este projeto foi programado inteiramente na IDE Visual Studio Code, então é recomendável que utlização do Projeto seja na IDE que o projeto foi projetado.
 
+
 2. Instalação do Python
 
    Este é um projeto desenvolvido na Linguagem de Programação Python (mais especificamente na versão 3.12.3), então é necessário baixar e instalar o Python. É recomendado que seja baixado no site oficial do Python:
    ```markdown
    https://www.python.org/
+
 
 3. Variavel de Ambiente
 
@@ -44,6 +46,7 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
       python --version
       
    - Caso aparecer: Python 3.12.3 (ou a versão instalada), está correto! Caso der erro, refaça novamente o procedimento.
+
 
 4. Permissão para executar Scripts no Sistema Operacional Windows
 
