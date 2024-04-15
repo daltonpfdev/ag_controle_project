@@ -77,7 +77,15 @@
         </tr>
         <tr>
             <th>Dias com o Veículo</th>
-            <td>{{ controle_view.calcular_quantidade_dias|default:"-" }}</td>
+            <td>
+                {% if controle_view.calcular_quantidade_dias >= 1 %}
+                    {{ controle_view.calcular_quantidade_dias|default:"-" }}
+                {% elif controle_view.calcular_quantidade_dias < 1 %}
+                    Menos que 1 dia
+                {% else %}
+                    -
+                {% endif %}
+            </td>
         </tr>
         <tr>
             <th>KM do Veículo no Retorno</th>
