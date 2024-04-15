@@ -36,15 +36,29 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
      
       ```bash
       where python
+      
    - Clique em "OK" em todas as janelas para salvar as alterações.
    - Para a confirmar a configuração da Variavel de Ambiente, abra o CMD novamente e digite o comando:
      
       ```bash
       python --version
+      
    - Caso aparecer: Python 3.12.3 (ou a versão instalada), está correto! Caso der erro, refaça novamente o procedimento.
+
+4. Permissão para executar Scripts no Sistema Operacional Windows
+
+   Caso o Sistema Operacional utlizado para executar o Projeto for o Windows e nunca foi executado nenhum tipo de Script, é provável que não seja possível executar o projeto. Em caso de erro de permissões:
+
+   - Abrir o Windows PowerShell como Administrador.
+   - Digitar o comando:
+
+      ```bash
+      Set-ExecutionPolicy RemoteSigned
+
+   - Irá aparecer um texto informando se é desejável alterar as permissões, digite a letra "a" e pressione "Enter".
+   - Pronto, é possivel e executar um Script no Sistema Operacional Windows
    
-   
-## Instalação
+## Instalação do Projeto
 
 1. Clone o repositório:
 
@@ -59,6 +73,7 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 3. Verificar as bibliotecas necessárias para a execução do Projeto com o comando:
 
    - Comando para verificar as bibliotecas
+     
       ```bash
       pip list
       
@@ -71,15 +86,22 @@ Este projeto Django é um CRUD (Create, Read, Update, Delete) para o controle de
 5. Instalações das Bibliotecas:
 
    - Django
+     
        ```bash
-       pip install django 
+       pip install django
+      
    - crispy-bootstrap5
+     
         ```bash
         pip install crispy-bootstrap5
+      
    - mysqlclient
+     
         ```bash
         pip install mysqlclient
+        
    - validate-docbr
+     
       ```bash
       pip install validate-docbr
 
@@ -112,20 +134,24 @@ Aqui está ambas configurações:
    }
    
 4. Atualize as tabelas a partir dos Modelos de models.py do Projeto
+   
    ```bash
    python manage.py makemigrations
 
-5. Criação das tabelas a partir dos Modelos de models.py do Projeto
+6. Criação das tabelas a partir dos Modelos de models.py do Projeto
+   
    ```bash
    python manage.py migrate
 
 ## Iniciar o Projeto
 
 1. Para iniciar o Projeto na sua localhost:
+   
    ```bash
    python manage.py runserver
 
-2. Acesse o progeto em:
+3. Acesse o progeto em:
+   
    ```markdown
    http://localhost:8000/
    
