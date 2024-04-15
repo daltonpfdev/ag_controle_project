@@ -112,17 +112,22 @@ Porem, caso preferirem, estou disponibilizando o arquivo db.sqlite3 que pode ser
 Aqui está ambas configurações:
 
 1. Configuração do arquivo settings.py para o Banco de Dados MySql:
-   ```markdown
-   DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'app_controle',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
-       }
-   }
+   
+ - 1.1. Atualização no arquivo settings.py:
+      ```markdown
+      DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': 'app_controle',
+           'USER': 'root',
+           'PASSWORD': 'root',
+           'HOST': '127.0.0.1',
+           'PORT': 3306,
+          }
+      }
+- 1.2. Alterações para configuração
+
+   No MySql WorkBench, crie uma nova Schema chamada "app_controle" e configure os campos "USER" e "PASSWORD" de acordo com a configuração do MySql WorkBench
 
 2. Configuração do arquivo settings.py para o Banco de Dados Sqlite3
    ```markdown
