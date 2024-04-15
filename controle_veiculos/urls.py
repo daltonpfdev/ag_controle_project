@@ -4,7 +4,6 @@ from django.urls import path
 import app_controle.views as views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("home/", views.home, name="home"),
     path("motorista_list/", views.MotoristaListView.as_view(), name="motorista_list"),
     path("veiculo_list/", views.VeiculoListView.as_view(), name="veiculo_list"),
