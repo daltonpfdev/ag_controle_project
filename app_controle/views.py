@@ -70,19 +70,11 @@ class ControleListView(ListView):
             context['mensagem'] = 'Existem registros de motoristas e veículos.'
             
         for veiculo in Veiculo.objects.all():
-            if not Controle.objects.filter(veiculo=veiculo).exists():
+            if not Controle.objects.filter(veiculo=veiculo, concluido=False).exists():
                 veiculo.disponivel = True
-                veiculo.save()
             else:
-                for controle in Controle.objects.all():
-                    if controle.concluido == False:
-                        veiculo = controle.veiculo
-                        veiculo.disponivel = False
-                        veiculo.save()
-                    elif controle.concluido == True:
-                        veiculo = controle.veiculo
-                        veiculo.disponivel = True
-                        veiculo.save()
+                veiculo.disponivel = False
+            veiculo.save()
 
         return context
 

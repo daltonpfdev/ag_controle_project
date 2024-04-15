@@ -103,3 +103,6 @@ class Controle(models.Model):
     
     def __str__(self):
         return f"Controle de {self.veiculo} - {self.data_saida}"
+    
+    class Meta:
+        ordering = ["-data_saida"]
