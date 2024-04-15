@@ -150,7 +150,7 @@ Aqui está ambas configurações:
    ```bash
    python manage.py runserver
 
-3. Acesse o progeto em:
+3. Acesse o projeto em:
    
    ```markdown
    http://localhost:8000/
